@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopDoan - System Diagrams</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header p {
+            color: #888;
+            font-size: 1.1rem;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .controls button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .controls button.primary {
+            background: #3b82f6;
+            color: white;
+        }
+        .controls button.primary:hover {
+            background: #2563eb;
+        }
+        .controls button.secondary {
+            background: #1f1f1f;
+            color: #ccc;
+            border: 1px solid #333;
+        }
+        .controls button.secondary:hover {
+            background: #2a2a2a;
+        }
+        .diagram-container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .diagram-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #111;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3b82f6;
+        }
+        .diagram-content {
+            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+            min-height: 400px;
+        }
+        .diagram-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .diagram-actions button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .btn-png {
+            background: #10b981;
+            color: white;
+        }
+        .btn-png:hover {
+            background: #059669;
+        }
+        .btn-svg {
+            background: #8b5cf6;
+            color: white;
+        }
+        .btn-svg:hover {
+            background: #7c3aed;
+        }
+        .mermaid {
+            background: white;
+        }
+        .instructions {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .instructions h3 {
+            color: #3b82f6;
+            margin-bottom: 10px;
+        }
+        .instructions ul {
+            color: #888;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin-bottom: 5px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            border-top: 1px solid #333;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ShopDoan - System Diagrams</h1>
+        <p>E-commerce Marketplace - UML Diagrams Documentation</p>
+    </div>
+
+    <div class="instructions">
+        <h3>Huong dan su dung:</h3>
+        <ul>
+            <li>Click <strong>"Tai PNG"</strong> de tai hinh anh chat luong cao</li>
+            <li>Click <strong>"Tai SVG"</strong> de tai file vector (co the chinh sua trong Illustrator/Figma)</li>
+            <li>Mo file HTML nay trong trinh duyet Chrome/Edge de hien thi tot nhat</li>
+            <li>Nhan <strong>Ctrl+P</strong> de in tung diagram</li>
+        </ul>
+    </div>
+
+    <!-- 1. USE CASE DIAGRAM -->
+    <div class="diagram-container" id="container-usecase">
+        <h2 class="diagram-title">1. Use Case Diagram - Tong quan chuc nang he thong</h2>
+        <div class="diagram-content">
+            <pre class="mermaid" id="diagram-usecase">
+flowchart TB
+    subgraph Actors
+        Guest["👤 Guest<br/>(Khach vang lai)"]
+        Buyer["👤 Buyer<br/>(Nguoi mua)"]
+        Seller["👤 Seller<br/>(Nguoi ban)"]
+        Admin["👤 Admin<br/>(Quan tri vien)"]
+    end
+
+    subgraph GuestUC["Guest Use Cases"]
+        UC1["Xem danh sach san pham"]
+        UC2["Tim kiem san pham"]
+        UC3["Xem chi tiet san pham"]
+        UC4["Xem cua hang/shop"]
+        UC5["Dang ky tai khoan"]
+        UC6["Dang nhap"]
+        UC7["Chat voi AI Chatbot"]
+        UC8["Nhan goi y san pham"]
+    end
+
+    subgraph BuyerUC["Buyer Use Cases"]
+        UC9["Them vao gio hang"]
+        UC10["Quan ly gio hang"]
+        UC11["Dat hang - Checkout"]
+        UC12["Chon phuong thuc thanh toan"]
+        UC13["Xem lich su don hang"]
+        UC14["Theo doi trang thai don"]
+        UC15["Huy don hang"]
+        UC16["Danh gia san pham"]
+        UC17["Danh gia cua hang"]
+        UC18["Cap nhat thong tin ca nhan"]
+        UC19["Dang ky lam Seller"]
+        UC20["Xem thong bao"]
+    end
+
+    subgraph SellerUC["Seller Use Cases"]
+        UC21["Quan ly ho so cua hang"]
+        UC22["Them san pham moi"]
+        UC23["Cap nhat san pham"]
+        UC24["Xoa/An san pham"]
+        UC25["Quan ly bien the san pham"]
+        UC26["Xem don hang cua shop"]
+        UC27["Cap nhat trang thai don"]
+        UC28["Xem thong ke ban hang"]
+        UC29["Phan hoi danh gia"]
+    end
+
+    subgraph AdminUC["Admin Use Cases"]
+        UC30["Quan ly nguoi dung"]
+        UC31["Duyet ho so Seller"]
+        UC32["Quan ly danh muc"]
+        UC33["Xem tat ca don hang"]
+        UC34["Quan ly danh gia"]
+        UC35["Quan ly san pham"]
+    end
+
+    Guest --> UC1 & UC2 & UC3 & UC4 & UC5 & UC6 & UC7 & UC8
+    Buyer --> UC9 & UC10 & UC11 & UC12 & UC13 & UC14 & UC15 & UC16 & UC17 & UC18 & UC19 & UC20
+    Seller --> UC21 & UC22 & UC23 & UC24 & UC25 & UC26 & UC27 & UC28 & UC29
+    Admin --> UC30 & UC31 & UC32 & UC33 & UC34 & UC35
+
+    UC11 -.->|include| UC12
+    UC16 -.->|require| UC13
+    UC5 -.->|extend| UC6
+            </pre>
+        </div>
+        <div class="diagram-actions">
+            <button class="btn-png" onclick="downloadPNG('diagram-usecase', '01-use-case-diagram')">Tai PNG</button>
+            <button class="btn-svg" onclick="downloadSVG('diagram-usecase', '01-use-case-diagram')">Tai SVG</button>
+        </div>
+    </div>
+
+    <!-- 2. SEQUENCE - AUTH -->
+    <div class="diagram-container" id="container-auth">
+        <h2 class="diagram-title">2. Sequence Diagram - Dang ky va Xac thuc Email</h2>
+        <div class="diagram-content">
+            <pre class="mermaid" id="diagram-auth">
+sequenceDiagram
+    autonumber
+    participant U as User Browser
+    participant AC as AuthController
+    participant AS as AuthService
+    participant US as UsersService
+    participant DB as Database
+    participant MS as MailService
+
+    U->>AC: POST /auth/register
+    Note right of U: {email, password, name, phone}
+    AC->>AS: register(dto)
+    AS->>US: findByEmail(email)
+    US->>DB: user.findUnique({email})
+    DB-->>US: null hoac user
+
+    alt Email da ton tai va isActive=true
+        AS-->>U: BadRequestException - Email da ton tai
+    else Email chua ton tai hoac isActive=false
+        AS->>AS: hashPassword(password)
+        AS->>AS: generateResetCode()
+        AS->>DB: user.create({...data, isActive:false})
+        DB-->>AS: unverified user
+        AS->>MS: sendRegistrationVerification(user, code)
+        MS-->>AS: Email sent
+        AS-->>U: {user, message: Ma xac thuc da gui}
+    end
+
+    Note over U,MS: === Xac thuc Email ===
+
+    U->>AC: POST /auth/verify-registration
+    Note right of U: {email, code}
+    AC->>AS: verifyRegistration(email, code)
+    AS->>US: findByEmail(email)
+    AS->>AS: assertValidCode(user, code)
+
+    alt Code hop le va chua het han
+        AS->>DB: user.update({isActive: true})
+        DB-->>AS: activated user
+        AS-->>U: {success: true, message: Xac thuc thanh cong}
+    else Code khong hop le hoac het han
+        AS-->>U: BadRequestException - Ma khong dung/het han
+    end
+            </pre>
+        </div>
+        <div class="diagram-actions">
+            <button class="btn-png" onclick="downloadPNG('diagram-auth', '02-sequence-auth')">Tai PNG</button>
+            <button class="btn-svg" onclick="downloadSVG('diagram-auth', '02-sequence-auth')">Tai SVG</button>
+        </div>
+    </div>
+
+    <!-- 3. SEQUENCE - ORDER -->
+    <div class="diagram-container" id="container-order">
+        <h2 class="diagram-title">3. Sequence Diagram - Quy trinh Dat hang</h2>
+        <div class="diagram-content">
+            <pre class="mermaid" id="diagram-order">
+sequenceDiagram
+    autonumber
+    participant B as Buyer Browser
+    participant OC as OrdersController
+    participant OS as OrdersService
+    participant CS as CartService
+    participant DB as Database
+    participant NS as NotificationsService
+    participant PS as PaymentsService
+    participant ST as Stripe
+
+    B->>OC: POST /orders
+    Note right of B: {items, receiverName, phone, address, paymentMethod}
+    OC->>OS: create(dto, userId)
+    OS->>OS: Validate receiver info
+
+    OS->>DB: $transaction start
+
+    loop Voi moi item trong don hang
+        OS->>DB: product.findMany({id in productIds})
+        OS->>DB: productVariant.findMany({id in variantIds})
+        OS->>OS: Validate seller.status === APPROVED
+        OS->>OS: Validate stock >= quantity
+        OS->>OS: Calculate price
+    end
+
+    OS->>OS: Calculate totalAmount, shippingFee, finalAmount
+    OS->>OS: generateOrderCode()
+    OS->>DB: order.create({...orderData, orderItems})
+    OS->>DB: payment.create({orderId, method, status: UNPAID})
+
+    loop Cap nhat stock cho moi san pham
+        OS->>DB: product.update({stock: decrement})
+    end
+
+    OS->>DB: cartItem.deleteMany({userId, productId})
+    OS->>NS: createForUser - Thong bao dat hang thanh cong
+
+    OS->>DB: $transaction commit
+    OS-->>B: {success: true, order}
+
+    alt paymentMethod === STRIPE
+        B->>PS: POST /payments/stripe/checkout
+        PS->>ST: checkout.sessions.create()
+        ST-->>PS: {sessionId, url}
+        PS-->>B: {checkoutUrl}
+        B->>ST: Redirect to Stripe Checkout
+        ST-->>B: Redirect to success_url
+    end
+            </pre>
+        </div>
+        <div class="diagram-actions">
+            <button class="btn-png" onclick="downloadPNG('diagram-order', '03-sequence-order')">Tai PNG</button>
+            <button class="btn-svg" onclick="downloadSVG('diagram-order', '03-sequence-order')">Tai SVG</button>
+        </div>
+    </div>
+
+    <!-- 4. SEQUENCE - CHATBOT -->
+    <div class="diagram-container" id="container-chatbot">
+        <h2 class="diagram-title">4. Sequence Diagram - AI Chatbot</h2>
+        <div class="diagram-content">
+            <pre class="mermaid" id="diagram-chatbot">
+sequenceDiagram
+    autonumber
+    participant U as User Browser
+    participant CC as ChatbotController
+    participant CS as ChatbotService
+    participant DB as Database
+    participant AI as AI Memory System
+
+    U->>CC: POST /chatbot/send
+    Note right of U: {message, sessionId?}
+    CC->>CS: sendMessage(message, userId, sessionId)
+    CS->>CS: getOrCreateSession(userId, sessionId)
+
+    alt Co sessionId
+        CS->>DB: chatSession.findUnique({id: sessionId})
+    else Khong co sessionId, user da dang nhap
+        CS->>DB: chatSession.findFirst({userId}) OR create new
+    end
+
+    CS->>DB: chatMessage.create({sender: USER, message})
+    CS->>CS: getConversationContext(sessionId, userId)
+    CS->>DB: chatMessage.findMany({take: 10})
+    CS->>DB: aiMemory.findUnique({key: chatbot_profile})
+
+    CS->>CS: parseMessage(message, context)
+    Note right of CS: detectLanguage -> vi/en<br/>detectIntent -> greeting/product_search/...<br/>extractProductKeyword<br/>extractPriceMax
+
+    CS->>CS: buildBotPayload(parsed, userId, context)
+
+    alt Intent = product_search hoac recommendation
+        CS->>DB: product.findMany({...filters, status: ACTIVE})
+        CS->>CS: Score and rank products
+    else Intent = order_tracking
+        CS->>DB: order.findFirst({userId, orderBy: createdAt})
+    else Intent = add_to_cart
+        CS->>CS: resolveCartProduct(parsed, context)
+    end
+
+    CS->>DB: chatMessage.create({sender: BOT, message: response})
+    CS->>CS: learnFromConversation(userId, parsed, payload)
+    CS->>DB: aiMemory.upsert({key: chatbot_profile, value: preferences})
+
+    CS-->>U: {sessionId, response, products, quickReplies, intent}
+            </pre>
+        </div>
+        <div class="diagram-actions">
+            <button class="btn-png" onclick="downloadPNG('diagram-chatbot', '04-sequence-chatbot')">Tai PNG</button>
+            <button class="btn-svg" onclick="downloadSVG('diagram-chatbot', '04-sequence-chatbot')">Tai SVG</button>
+        </div>
+    </div>
+
+    <!-- 5. SEQUENCE - SELLER -->
+    <div class="diagram-container" id="container-seller">
+        <h2 class="diagram-title">5. Sequence Diagram - Dang ky Seller va Duyet</h2>
+        <div class="diagram-content">
+            <pre class="mermaid" id="diagram-seller">
+sequenceDiagram
+    autonumber
+    participant B as Buyer Browser
+    participant A as Admin Dashboard
+    participant SC as SellersController
+    participant SS as SellersService
+    participant DB as Database
+
+    Note over B,DB: === Buyer dang ky lam Seller ===
+
+    B->>SC: POST /sellers/register
+    Note right of B: {shopName, description, logo, phone, address}
+    SC->>SS: register(userId, dto)
+    SS->>DB: user.findUnique({id: userId, include: sellerProfile})
+
+    alt sellerProfile.status === APPROVED
+        SS-->>B: BadRequestException - Da duoc duyet
+    else sellerProfile.status === PENDING
+        SS-->>B: BadRequestException - Dang cho duyet
+    else sellerProfile.status === SUSPENDED
+        SS-->>B: ForbiddenException - Bi dinh chi
+    else Chua co profile hoac REJECTED
+        SS->>SS: uniqueSlug(shopSlug || shopName)
+        SS->>DB: sellerProfile.upsert({...data, status: PENDING})
+        SS-->>B: {success, message: Da gui dang ky, profile}
+    end
+
+    Note over B,DB: === Admin duyet ho so Seller ===
+
+    A->>SC: GET /admin/sellers?filter=pending
+    SC->>SS: findAll({filter: pending})
+    SS->>DB: sellerProfile.findMany({status: PENDING})
+    SS-->>A: {sellers: [...pending]}
+
+    A->>SC: POST /admin/sellers/:id/approve
+    SC->>SS: approve(id)
+    SS->>DB: $transaction start
+    SS->>DB: role.findUnique({name: SELLER})
+    SS->>DB: user.update({roleId: sellerRoleId, accountRole: SELLER})
+    SS->>DB: sellerProfile.update({status: APPROVED})
+    SS->>SS: syncLegacyShop(profile)
+    SS->>DB: shop.upsert({ownerId, status: active, approvedAt})
+    SS->>DB: $transaction commit
+
+    SS-->>A: {success, message: Da duyet, profile}
+            </pre>
+        </div>
+        <div class="diagram-actions">
+            <button class="btn-png" onclick="downloadPNG('diagram-seller', '05-sequence-seller')">Tai PNG</button>
+            <button class="btn-svg" onclick="downloadSVG('diagram-seller', '05-sequence-seller')">Tai SVG</button>
+        </div>
+    </div>
+
+    <!-- 6. ACTIVITY - PURCHASE -->
+    <div class="diagram-container" id="container-purchase">
+        <h2 class="diagram-title">6. Activity Diagram - Quy trinh mua hang</h2>
+        <div class="diagram-content">
+            <pre class="mermaid" id="diagram-purchase">
+flowchart TD
+    Start([Bat dau]) --> Browse[Duyet san pham]
+    Browse --> Search[Tim kiem/Loc san pham]
+    Search --> ViewDetail[Xem chi tiet san pham]
+    ViewDetail --> SelectVariant{Co bien the?}
+    
+    SelectVariant -->|Co| ChooseVariant[Chon bien the]
+    SelectVariant -->|Khong| CheckStock
+    ChooseVariant --> CheckStock{Con hang?}
+    
+    CheckStock -->|Khong| OutOfStock[Hien thi Het hang]
+    OutOfStock --> Browse
+    CheckStock -->|Co| AddCart[Them vao gio hang]
+    
+    AddCart --> UpdateCart{Cap nhat gio?}
+    UpdateCart -->|Co| ModifyCart[Thay doi SL/Xoa]
+    ModifyCart --> ContinueShopping
+    UpdateCart -->|Khong| ContinueShopping{Tiep tuc mua?}
+    
+    ContinueShopping -->|Co| Browse
+    ContinueShopping -->|Khong| ViewCart[Xem gio hang]
+    
+    ViewCart --> CartEmpty{Gio trong?}
+    CartEmpty -->|Co| EndEmpty([Ket thuc])
+    CartEmpty -->|Khong| Checkout[Tien hanh dat hang]
+    
+    Checkout --> LoggedIn{Da dang nhap?}
+    LoggedIn -->|Khong| Login[Dang nhap/Dang ky]
+    Login --> EnterInfo
+    LoggedIn -->|Co| EnterInfo[Nhap thong tin nhan hang]
+    
+    EnterInfo --> ValidateInfo{Thong tin hop le?}
+    ValidateInfo -->|Khong| ShowError[Hien thi loi]
+    ShowError --> EnterInfo
+    ValidateInfo -->|Co| SelectPayment[Chon phuong thuc thanh toan]
+    
+    SelectPayment --> PaymentMethod{Phuong thuc?}
+    PaymentMethod -->|COD| CreateOrderCOD[Tao don hang COD]
+    PaymentMethod -->|Stripe| CreateOrderStripe[Tao don hang Stripe]
+    PaymentMethod -->|Khac| CreateOrderOther[Tao don hang khac]
+    
+    CreateOrderStripe --> RedirectStripe[Chuyen den Stripe]
+    RedirectStripe --> PaymentSuccess{Thanh toan thanh cong?}
+    PaymentSuccess -->|Co| OrderPaid[Don hang PAID]
+    PaymentSuccess -->|Khong| OrderFailed[Don hang FAILED]
+    
+    CreateOrderCOD --> OrderPending[Don hang PENDING]
+    CreateOrderOther --> OrderPending
+    
+    OrderPaid --> SendNotification[Gui thong bao]
+    OrderPending --> SendNotification
+    OrderFailed --> SendNotification
+    
+    SendNotification --> ClearCart[Xoa san pham khoi gio]
+    ClearCart --> EndSuccess([Ket thuc])
+            </pre>
+        </div>
+        <div class="diagram-actions">
+            <button class="btn-png" onclick="downloadPNG('diagram-purchase', '06-activity-purchase')">Tai PNG</button>
+            <button class="btn-svg" onclick="downloadSVG('diagram-purchase', '06-activity-purchase')">Tai SVG</button>
+        </div>
+    </div>
+
+    <!-- 7. ACTIVITY - ORDER PROCESS -->
+    <div class="diagram-container" id="container-orderprocess">
+        <h2 class="diagram-title">7. Activity Diagram - Xu ly don hang (Seller)</h2>
+        <div class="diagram-content">
+            <pre class="mermaid" id="diagram-orderprocess">
+flowchart TD
+    Start([Nhan thong bao don hang moi]) --> ViewOrder[Xem chi tiet don hang]
+    ViewOrder --> OrderStatus[Trang thai: PENDING]
+    OrderStatus --> ConfirmOrder{Xac nhan don?}
+    
+    ConfirmOrder -->|Khong| CancelOrder[Huy don hang]
+    CancelOrder --> RestoreStock[Hoan tra stock]
+    RestoreStock --> NotifyCancel[Thong bao Buyer: Da huy]
+    NotifyCancel --> EndCancel([Ket thuc])
+    
+    ConfirmOrder -->|Co| UpdateConfirmed[Cap nhat: CONFIRMED]
+    UpdateConfirmed --> PreparePackage[Chuan bi dong goi]
+    PreparePackage --> UpdatePacking[Cap nhat: PACKING]
+    UpdatePacking --> HandToShipper[Giao cho shipper]
+    HandToShipper --> UpdateShipping[Cap nhat: SHIPPING]
+    UpdateShipping --> WaitDelivery[Cho giao hang]
+    WaitDelivery --> DeliverySuccess{Giao thanh cong?}
+    
+    DeliverySuccess -->|Khong| HandleReturn[Xu ly tra hang/Giao lai]
+    HandleReturn --> WaitDelivery
+    
+    DeliverySuccess -->|Co| UpdateDelivered[Cap nhat: DELIVERED]
+    UpdateDelivered --> NotifyDelivered[Thong bao Buyer: Da giao]
+    NotifyDelivered --> CheckPayment{Phuong thuc COD?}
+    
+    CheckPayment -->|Co| UpdatePaymentPaid[Cap nhat Payment: PAID]
+    CheckPayment -->|Khong| EndSuccess
+    UpdatePaymentPaid --> EndSuccess([Ket thuc])
+            </pre>
+        </div>
+        <div class="diagram-actions">
+            <button class="btn-png" onclick="downloadPNG('diagram-orderprocess', '07-activity-order-process')">Tai PNG</button>
+            <button class="btn-svg" onclick="downloadSVG('diagram-orderprocess', '07-activity-order-process')">Tai SVG</button>
+        </div>
+    </div>
+
+    <!-- 8. CLASS DIAGRAM -->
+    <div class="diagram-container" id="container-class">
+        <h2 class="diagram-title">8. Class Diagram - Cau truc lop OOP</h2>
+        <div class="diagram-content">
+            <pre class="mermaid" id="diagram-class">
+classDiagram
+    class Role {
+        +int id
+        +string name
+        +DateTime createdAt
+        +DateTime updatedAt
+    }
+
+    class User {
+        +int id
+        +string email
+        +string password
+        +string name
+        +string phone
+        +string address
+        +string avatar
+        +UserRole accountRole
+        +int roleId
+        +boolean isActive
+        +string codeId
+        +DateTime codeExpired
+        +string refreshToken
+        +validatePassword() boolean
+        +generateToken() string
+    }
+
+    class SellerProfile {
+        +int id
+        +int userId
+        +string shopName
+        +string shopSlug
+        +string description
+        +string logo
+        +string banner
+        +string phone
+        +string address
+        +SellerProfileStatus status
+    }
+
+    class Category {
+        +int id
+        +int parentId
+        +string name
+        +string slug
+        +string description
+        +string image
+        +int sortOrder
+        +boolean isActive
+    }
+
+    class Product {
+        +int id
+        +int sellerId
+        +int categoryId
+        +string name
+        +string slug
+        +string description
+        +float price
+        +float salePrice
+        +int stock
+        +int soldCount
+        +float ratingAverage
+        +int ratingCount
+        +ProductStatus status
+    }
+
+    class ProductVariant {
+        +int id
+        +int productId
+        +string sku
+        +string name
+        +string value
+        +float priceDelta
+        +float price
+        +int stock
+        +boolean isActive
+    }
+
+    class Cart {
+        +int id
+        +int userId
+        +DateTime createdAt
+    }
+
+    class CartItem {
+        +int id
+        +int userId
+        +int cartId
+        +int productId
+        +int variantId
+        +string cartKey
+        +int quantity
+        +float priceAtTime
+    }
+
+    class Order {
+        +int id
+        +int userId
+        +string orderCode
+        +float totalAmount
+        +float shippingFee
+        +float discountAmount
+        +float finalAmount
+        +PaymentMethod paymentMethod
+        +PaymentStatus paymentStatus
+        +OrderStatus orderStatus
+        +string receiverName
+        +string receiverPhone
+        +string receiverAddress
+    }
+
+    class OrderItem {
+        +int id
+        +int orderId
+        +int sellerId
+        +int productId
+        +int variantId
+        +string productName
+        +string productImage
+        +int quantity
+        +float price
+    }
+
+    class Review {
+        +int id
+        +int userId
+        +int productId
+        +int orderItemId
+        +float rating
+        +string comment
+        +string sellerReply
+        +boolean isHidden
+    }
+
+    class Notification {
+        +int id
+        +int userId
+        +string title
+        +string message
+        +string type
+        +string actionUrl
+        +DateTime readAt
+    }
+
+    class ChatSession {
+        +int id
+        +int userId
+        +DateTime createdAt
+    }
+
+    class ChatMessage {
+        +int id
+        +int sessionId
+        +ChatSender sender
+        +string message
+    }
+
+    Role "1" --> "*" User : has
+    User "1" --> "0..1" SellerProfile : owns
+    User "1" --> "0..1" Cart : has
+    User "1" --> "*" Order : places
+    User "1" --> "*" Review : writes
+    User "1" --> "*" Notification : receives
+    User "1" --> "*" ChatSession : has
+
+    SellerProfile "1" --> "*" Product : sells
+    SellerProfile "1" --> "*" OrderItem : receives
+
+    Category "1" --> "*" Category : parent-child
+    Category "1" --> "*" Product : contains
+
+    Product "1" --> "*" ProductVariant : has
+    Product "1" --> "*" CartItem : in
+    Product "1" --> "*" OrderItem : ordered
+    Product "1" --> "*" Review : receives
+
+    Cart "1" --> "*" CartItem : contains
+    CartItem "*" --> "0..1" ProductVariant : selects
+
+    Order "1" --> "*" OrderItem : contains
+    OrderItem "0..1" --> "0..1" Review : reviewed
+
+    ChatSession "1" --> "*" ChatMessage : contains
+            </pre>
+        </div>
+        <div class="diagram-actions">
+            <button class="btn-png" onclick="downloadPNG('diagram-class', '08-class-diagram')">Tai PNG</button>
+            <button class="btn-svg" onclick="downloadSVG('diagram-class', '08-class-diagram')">Tai SVG</button>
+        </div>
+    </div>
+
+    <!-- 9. ERD DIAGRAM -->
+    <div class="diagram-container" id="container-erd">
+        <h2 class="diagram-title">9. ERD - Entity Relationship Diagram</h2>
+        <div class="diagram-content">
+            <pre class="mermaid" id="diagram-erd">
+erDiagram
+    roles ||--o{ users : has
+    users ||--o| seller_profiles : owns
+    users ||--o| carts : has
+    users ||--o{ orders : places
+    users ||--o{ reviews : writes
+    users ||--o{ notifications : receives
+    users ||--o{ chat_sessions : has
+    users ||--o{ search_history : searches
+    users ||--o{ product_view_history : views
+    users ||--o{ ai_memories : has
+
+    seller_profiles ||--o{ products : sells
+    seller_profiles ||--o{ order_items : receives
+
+    categories ||--o{ categories : parent_child
+    categories ||--o{ products : contains
+
+    products ||--o{ product_images : has
+    products ||--o{ product_variants : has
+    products ||--o{ cart_items : in
+    products ||--o{ order_items : ordered
+    products ||--o{ reviews : receives
+    products ||--o{ product_view_history : viewed
+    products ||--o{ recommendation_logs : recommended
+
+    carts ||--o{ cart_items : contains
+    cart_items }o--o| product_variants : selects
+
+    orders ||--o{ order_items : contains
+    orders ||--o{ payments : has
+    order_items |o--o| reviews : reviewed
+
+    chat_sessions ||--o{ chat_messages : contains
+
+    roles {
+        int id PK
+        string name UK
+        datetime created_at
+    }
+
+    users {
+        int id PK
+        string email UK
+        string password
+        string name
+        string phone
+        string avatar
+        enum account_role
+        int role_id FK
+        boolean is_active
+        string code_id
+        datetime code_expired
+    }
+
+    seller_profiles {
+        int id PK
+        int user_id FK_UK
+        string shop_name
+        string shop_slug UK
+        string description
+        string logo
+        enum status
+    }
+
+    categories {
+        int id PK
+        int parent_id FK
+        string name
+        string slug UK
+        boolean is_active
+    }
+
+    products {
+        int id PK
+        int seller_id FK
+        int category_id FK
+        string name
+        string slug UK
+        decimal price
+        decimal sale_price
+        int stock
+        int sold_count
+        decimal rating_average
+        enum status
+    }
+
+    orders {
+        int id PK
+        int user_id FK
+        string order_code UK
+        decimal total_amount
+        decimal shipping_fee
+        decimal final_amount
+        enum payment_method
+        enum payment_status
+        enum order_status
+        string receiver_name
+        string receiver_phone
+        string receiver_address
+    }
+
+    order_items {
+        int id PK
+        int order_id FK
+        int seller_id FK
+        int product_id FK
+        int variant_id FK
+        string product_name
+        int quantity
+        decimal price
+    }
+
+    reviews {
+        int id PK
+        int user_id FK
+        int product_id FK
+        int order_item_id FK_UK
+        decimal rating
+        string comment
+        string seller_reply
+        boolean is_hidden
+    }
+            </pre>
+        </div>
+        <div class="diagram-actions">
+            <button class="btn-png" onclick="downloadPNG('diagram-erd', '09-erd-diagram')">Tai PNG</button>
+            <button class="btn-svg" onclick="downloadSVG('diagram-erd', '09-erd-diagram')">Tai SVG</button>
+        </div>
+    </div>
+
+    <!-- 10. ARCHITECTURE DIAGRAM -->
+    <div class="diagram-container" id="container-arch">
+        <h2 class="diagram-title">10. System Architecture Diagram</h2>
+        <div class="diagram-content">
+            <pre class="mermaid" id="diagram-arch">
+flowchart TB
+    subgraph ClientLayer["CLIENT LAYER"]
+        UserApp["🌐 User Web App<br/>Next.js - Port 3000<br/>Browse, Cart, Checkout, Profile"]
+        AdminApp["🔧 Admin Dashboard<br/>Next.js - Port 3001<br/>User Mgmt, Seller Approval"]
+        MobileApp["📱 Mobile App<br/>React Native / Flutter<br/>(Future)"]
+    end
+
+    subgraph APIGateway["API GATEWAY"]
+        NestAPI["🚀 NestJS Backend API<br/>Port 3005<br/>REST API + GraphQL"]
+        Auth["🔐 Authentication<br/>JWT Access + Refresh Token"]
+        RateLimit["⚡ Rate Limiting<br/>100 req/60s"]
+        Guards["🛡️ Guards<br/>JwtAuthGuard, RolesGuard"]
+    end
+
+    subgraph Modules["BACKEND MODULES"]
+        AuthMod["Auth Module<br/>Login, Register, Verify"]
+        UserMod["Users Module<br/>Profile Management"]
+        ProductMod["Products Module<br/>CRUD, Variants, Images"]
+        CategoryMod["Categories Module<br/>Hierarchical"]
+        CartMod["Cart Module<br/>Add, Update, Remove"]
+        OrderMod["Orders Module<br/>Marketplace Flow"]
+        PaymentMod["Payments Module<br/>COD, Stripe"]
+        ReviewMod["Reviews Module<br/>Product & Shop Reviews"]
+        SellerMod["Sellers Module<br/>Registration, Approval"]
+        SearchMod["Search Module<br/>Keyword, Filter"]
+        RecommendMod["Recommendation<br/>AI-based Suggestions"]
+        ChatbotMod["Chatbot Module<br/>AI Assistant"]
+        NotifyMod["Notifications<br/>Order Updates"]
+    end
+
+    subgraph DataLayer["DATA LAYER"]
+        PostgreSQL[("🗄️ PostgreSQL<br/>Prisma ORM<br/>25+ Tables")]
+        FileStorage["📁 File Storage<br/>/uploads<br/>AWS S3 / Cloudinary"]
+        Cache["💾 Cache Layer<br/>In-memory Cache<br/>TTL Configurable"]
+    end
+
+    subgraph ExternalServices["EXTERNAL SERVICES"]
+        Stripe["💳 Stripe<br/>Payment Processing"]
+        SMTP["📧 SMTP Mail Service<br/>Verification, Notifications"]
+    end
+
+    UserApp & AdminApp & MobileApp --> NestAPI
+    NestAPI --> Auth & RateLimit & Guards
+    NestAPI --> AuthMod & UserMod & ProductMod & CategoryMod
+    NestAPI --> CartMod & OrderMod & PaymentMod & ReviewMod
+    NestAPI --> SellerMod & SearchMod & RecommendMod & ChatbotMod & NotifyMod
+
+    AuthMod & UserMod & ProductMod & OrderMod --> PostgreSQL
+    ProductMod --> FileStorage
+    ProductMod & OrderMod --> Cache
+    PaymentMod --> Stripe
+    AuthMod & OrderMod --> SMTP
+            </pre>
+        </div>
+        <div class="diagram-actions">
+            <button class="btn-png" onclick="downloadPNG('diagram-arch', '10-architecture-diagram')">Tai PNG</button>
+            <button class="btn-svg" onclick="downloadSVG('diagram-arch', '10-architecture-diagram')">Tai SVG</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>ShopDoan E-commerce Marketplace</strong></p>
+        <p>System Documentation - Generated with Mermaid.js</p>
+        <p style="margin-top: 10px; color: #888;">© 2024 - All diagrams are based on actual codebase analysis</p>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#3b82f6',
+                primaryTextColor: '#1f2937',
+                primaryBorderColor: '#2563eb',
+                lineColor: '#6b7280',
+                secondaryColor: '#f3f4f6',
+                tertiaryColor: '#e5e7eb',
+                background: '#ffffff',
+                mainBkg: '#eff6ff',
+                secondBkg: '#dbeafe',
+                border1: '#93c5fd',
+                border2: '#60a5fa',
+                fontFamily: 'Segoe UI, sans-serif',
+                fontSize: '14px',
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20,
+            },
+            sequence: {
+                useMaxWidth: true,
+                diagramMarginX: 50,
+                diagramMarginY: 30,
+                actorMargin: 80,
+                width: 180,
+                height: 65,
+                boxMargin: 15,
+                noteMargin: 15,
+                messageMargin: 45,
+                mirrorActors: true,
+                showSequenceNumbers: true,
+            },
+            er: {
+                useMaxWidth: true,
+                layoutDirection: 'TB',
+                minEntityWidth: 120,
+                minEntityHeight: 80,
+            },
+        });
+
+        async function downloadPNG(diagramId, filename) {
+            const svg = document.querySelector(`#${diagramId} svg`);
+            if (!svg) {
+                alert('Diagram chua duoc render. Vui long cho mot chut.');
+                return;
+            }
+
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+
+            const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+            const url = URL.createObjectURL(svgBlob);
+
+            img.onload = function() {
+                const scale = 2; // High resolution
+                canvas.width = img.width * scale;
+                canvas.height = img.height * scale;
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.scale(scale, scale);
+                ctx.drawImage(img, 0, 0);
+
+                const pngUrl = canvas.toDataURL('image/png');
+                const downloadLink = document.createElement('a');
+                downloadLink.href = pngUrl;
+                downloadLink.download = filename + '.png';
+                downloadLink.click();
+
+                URL.revokeObjectURL(url);
+            };
+
+            img.src = url;
+        }
+
+        function downloadSVG(diagramId, filename) {
+            const svg = document.querySelector(`#${diagramId} svg`);
+            if (!svg) {
+                alert('Diagram chua duoc render. Vui long cho mot chut.');
+                return;
+            }
+
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const svgBlob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' });
+            const url = URL.createObjectURL(svgBlob);
+
+            const downloadLink = document.createElement('a');
+            downloadLink.href = url;
+            downloadLink.download = filename + '.svg';
+            downloadLink.click();
+
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
